@@ -34,15 +34,21 @@ PALETTE = [BLUE, GOLD, GREEN, RED, "#7D5BA6"]
 
 st.markdown(f"""
 <style>
-    .main {{ background-color: #F7F8FA; }}
-    h1, h2, h3 {{ color: {NAVY}; }}
+    .stApp, .main {{ background-color: #F7F8FA; color: {NAVY}; }}
+    h1, h2, h3, h4, p, span, label, li {{ color: {NAVY} !important; }}
     div[data-testid="stMetric"] {{
         background-color: white; border-radius: 10px; padding: 14px 16px;
         border: 1px solid #E7EAF0; box-shadow: 0 1px 2px rgba(0,0,0,0.03);
     }}
-    div[data-testid="stMetricLabel"] {{ color: {GREY}; }}
-    .stTabs [data-baseweb="tab"] {{ font-weight: 600; }}
+    div[data-testid="stMetricLabel"] * {{ color: {GREY} !important; }}
+    div[data-testid="stMetricValue"] * {{ color: {NAVY} !important; }}
+    .stTabs [data-baseweb="tab"] {{ font-weight: 600; color: {NAVY} !important; }}
+    .stTabs [data-baseweb="tab"] p {{ color: {NAVY} !important; }}
     section[data-testid="stSidebar"] {{ background-color: #FFFFFF; border-right: 1px solid #E7EAF0; }}
+    section[data-testid="stSidebar"] * {{ color: {NAVY} !important; }}
+    div[data-testid="stCaptionContainer"] {{ color: {GREY} !important; }}
+    div[data-testid="stCaptionContainer"] * {{ color: {GREY} !important; }}
+    .stDataFrame {{ color: {NAVY}; }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -51,7 +57,7 @@ PLOTLY_TEMPLATE = dict(
         font=dict(family="Arial", color=NAVY),
         paper_bgcolor="white", plot_bgcolor="white",
         colorway=PALETTE,
-        title_font=dict(size=16, color=NAVY),
+        title=dict(text=""),
         xaxis=dict(gridcolor="#EEF1F5"), yaxis=dict(gridcolor="#EEF1F5"),
         margin=dict(t=50, l=10, r=10, b=10),
     )
